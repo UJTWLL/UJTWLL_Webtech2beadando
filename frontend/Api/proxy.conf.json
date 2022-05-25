@@ -1,0 +1,11 @@
+{
+    "/api":{
+        "target": "http://localhost:5001",
+        "secure": false,
+        "changeOrigin": true,
+        "headers": {
+            "X-Forwarded-For": "127.0.0.1",
+            "Origin-Token": "kVK1ij1e1sd3CKCRPvPlS70TzbA="
+          }
+    }
+}   

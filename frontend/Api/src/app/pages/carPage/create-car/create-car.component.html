@@ -1,0 +1,86 @@
+<mat-card>
+
+    <mat-card-title align="center">Új autó</mat-card-title>
+
+    <form [formGroup]="carFormGroup">
+        <div class="row">
+
+            <mat-form-field appearance="fill" class="col-lg-8">
+                <mat-label>Autó rendszáma</mat-label>
+                <input type="text" matInput formControlName="licensePlateNumber">
+            </mat-form-field>
+            <div *ngIf="carFormGroup.controls.licensePlateNumber.touched === true">
+                <mat-error *ngIf="carFormGroup.controls.licensePlateNumber.hasError('required')">
+                    Mező kitöltése kötelező!
+                </mat-error>
+                <mat-error *ngIf="carFormGroup.controls.licensePlateNumber.hasError('minlength')">
+                    A rendszám 6 karakter hosszúságú!
+                </mat-error>
+                <mat-error *ngIf="carFormGroup.controls.licensePlateNumber.hasError('maxlength')">
+                    A rendszám 6 karakter hosszúságú!
+                </mat-error>
+                <mat-error *ngIf="carFormGroup.controls.licensePlateNumber.hasError('pattern')">
+                    A magyar rendszámformátum engedélyezett (pl. ABC123)!
+                </mat-error>
+            </div>
+
+            <mat-form-field appearance="fill" class="col-lg-8">
+                <mat-label>Autó márkája</mat-label>
+                <input type="text" matInput formControlName="brand">
+            </mat-form-field>
+            <div *ngIf="carFormGroup.controls.brand.touched === true">
+                <mat-error *ngIf="carFormGroup.controls.brand.hasError('required')">
+                    Mező kitöltése kötelező!
+                </mat-error>
+                <mat-error *ngIf="carFormGroup.controls.brand.hasError('maxlength')">
+                    A megadott input maximum 20 karakter lehet!
+                </mat-error>
+            </div>
+
+            <mat-form-field appearance="fill" class="col-lg-8">
+                <mat-label>Típus</mat-label>
+                <input type="text" matInput formControlName="type">
+            </mat-form-field>
+            <div *ngIf="carFormGroup.controls.type.touched === true">
+                <mat-error *ngIf="carFormGroup.controls.type.hasError('required')">
+                    Mező kitöltése kötelező!
+                </mat-error>
+                <mat-error *ngIf="carFormGroup.controls.type.hasError('maxlength')">
+                    A megadott input maximum 20 karakter lehet!
+                </mat-error>
+            </div>
+
+            <mat-form-field appearance="fill" class="col-lg-8">
+                <mat-label>Teljesítmény</mat-label>
+                <input type="number" matInput formControlName="horsepower">
+            </mat-form-field>
+            <div *ngIf="carFormGroup.controls.horsepower.touched === true">
+                <mat-error *ngIf="carFormGroup.controls.horsepower.hasError('required')">
+                    Mező kitöltése kötelező!
+                </mat-error>
+                <mat-error *ngIf="carFormGroup.controls.horsepower.hasError('min')">
+                    A teljesítményt pozitív egész számokban mérjük!
+                </mat-error>
+            </div>
+
+            <mat-form-field appearance="fill" class="col-lg-8">
+                <mat-label>Ár</mat-label>
+                <input type="number" matInput formControlName="price">
+            </mat-form-field>
+            <div *ngIf="carFormGroup.controls.price.touched === true">
+                <mat-error *ngIf="carFormGroup.controls.price.hasError('required')">
+                    Mező kitöltése kötelező!
+                </mat-error>
+                <mat-error *ngIf="carFormGroup.controls.price.hasError('min')">
+                    Az árat pozitív egész számban mérjük!
+                </mat-error>
+            </div>
+        </div>
+        <div>
+            <button mat-raised-button matDialogClose>Vissza</button>
+            <button color="primary" [disabled]="!carFormGroup.valid" (click)="createProduct()" mat-raised-button
+                matDialogClose class="buttonColorize">Létrehozás</button>
+        </div>
+    </form>
+
+</mat-card>

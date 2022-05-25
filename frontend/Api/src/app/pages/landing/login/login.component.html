@@ -1,0 +1,44 @@
+<mat-toolbar fxLayout="row" class="navbar">
+    <b class="mainTitle">AnguCar autókereskedés</b>
+    <span fxFlex></span>
+    <button mat-button fxHide.xs (click)="navigateBack()" class="mainTitle">
+        <mat-icon class="mr">home</mat-icon>
+        Nyitólap
+    </button>
+    <button mat-button fxHide.xs (click)="navigateRegister()" class="mainTitle">
+        <mat-icon class="mr">login</mat-icon>
+        Regisztráció
+    </button>
+    <!--     <button mat-button fxHide.xs (click)="register()">
+        <mat-icon class="mr">login</mat-icon>
+        Regisztráció
+    </button> -->
+
+</mat-toolbar>
+<mat-card style="opacity: 0.95; margin-top:100px; width:40%; margin-left:33%;" class="font mat-elevation-z8 content ">
+    <h1>Bejelentkezés</h1>
+    <form [formGroup]="loginGroup" class="form">
+
+        <mat-form-field floatLabel="never" class="form-element">
+            <mat-label>Felhasználónév</mat-label>
+            <input type="text" matInput placeholder="Username" formControlName="username">
+            <mat-error *ngIf="loginGroup.controls.username.hasError('required')">
+                Felhasználónév megadása kötelező!
+            </mat-error>
+        </mat-form-field>
+        <div class="col-lg-12"></div>
+
+        <mat-form-field floatLabel="never" class="form-element">
+            <input type="password" matInput placeholder="Jelszó" formControlName="password">
+            <mat-error *ngIf="!loginGroup.controls.password.valid">
+                Jelszó megadása kötelező!
+            </mat-error>
+        </mat-form-field>
+
+        <div class="form-element">
+            <button mat-raised-button color="primary" type="submit" class="button buttonColorize" [disabled]="!loginGroup.valid"
+                (click)="login()">Bejelentkezés</button>
+        </div>
+
+    </form>
+</mat-card>

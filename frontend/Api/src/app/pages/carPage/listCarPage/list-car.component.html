@@ -1,0 +1,71 @@
+<mat-toolbar color="primary" class="navbar">
+    <b class="mainTitle">AnguCar autókereskedés</b>
+    <span class="example-spacer"></span>
+    <span class="mainTitle"> {{ user }} </span>
+    <button mat-icon-button class="example-icon" (click)="logout()" class="mainTitle">
+        <mat-icon>logout</mat-icon>
+    </button>
+</mat-toolbar>
+
+<div align="center" style="margin-top: 30px;">
+    <mat-card>
+        <div align="left">
+            <button mat-raised-button color="base" (click)="createProduct()">Új autó</button>
+            <mat-form-field>
+                <mat-label>Keresés</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+            </mat-form-field>
+        </div>
+        <mat-card-title>AnguCar autókereskedés nyilvántartott autói</mat-card-title>
+        <p><b>Az oldalon megtalálja a kereskedésben nyilvántartott autókat. Autó adatbázisba való felvételéhez kattintson az "Új autó" gombra.</b></p>
+    </mat-card>
+
+    <div align="center">
+
+        <div class="container">
+
+            <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+                <ng-container matColumnDef="licensePlateNumber">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Autó rendszáma </th>
+                    <td mat-cell *matCellDef="let element"> {{ element.licensePlateNumber }} </td>
+                </ng-container>
+                
+                <ng-container matColumnDef="brand">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Autó márkája </th>
+                    <td mat-cell *matCellDef="let element"> {{ element.brand }} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="type">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Autó típusa </th>
+                    <td mat-cell *matCellDef="let element"> {{ element.type }} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="horsepower">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Autó teljesítménye (LE) </th>
+                    <td mat-cell *matCellDef="let element"> {{ element.horsepower }} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="price">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Autó ára </th>
+                    <td mat-cell *matCellDef="let element"> {{ element.price }} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="delete">
+                    <th mat-header-cell *matHeaderCellDef> Törlés </th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-icon-button color="warn" matTooltip="Törlés" matTooltipPosition="above"
+                            (click)="deleteProduct(element)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+        </div>
+    </div>

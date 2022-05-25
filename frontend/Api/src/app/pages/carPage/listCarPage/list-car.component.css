@@ -1,0 +1,40 @@
+table {
+    width: 100%;
+}
+
+.mat-form-field {
+    margin: 2%;
+    font-size: 14px;
+    width: 10%;
+}
+
+.container {
+    width: 80%;
+    height: 100%;
+    background-color: rgb(158, 165, 60);
+}
+
+mat-card {
+    width: 80%;
+    height: 100%;
+    background-color: #dddddd;
+}
+
+.team-header-image {
+    background-size: cover;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+.navbar {
+    overflow: hidden;
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    background-color: #7777cc;
+    z-index: 9999;
+}
+.mainTitle{
+    color: #ffffff;
+}

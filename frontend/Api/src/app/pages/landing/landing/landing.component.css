@@ -1,0 +1,43 @@
+.fill-remaining-space {
+    flex: 1 1 auto;
+}
+
+.container {
+    padding: 10px;
+}
+
+.form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.form-element {
+    padding: 5px 0px 25px 2px;
+    width: 100%;
+}
+
+.button {
+    width: 100%;
+}
+
+.home {
+    background: whitesmoke;
+    height: 100vh;
+}
+
+mat-tab-group {
+    width: 100%;
+}
+.navbar {
+    overflow: hidden;
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    background-color: #7777cc;
+    z-index: 9999;
+}
+
+.mainTitle{
+    color: #ffffff;
+}

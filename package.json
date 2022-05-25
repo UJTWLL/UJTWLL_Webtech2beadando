@@ -1,0 +1,26 @@
+{
+  "name": "webtechiibeadandoujtwll",
+  "version": "1.0.0",
+  "description": "Webtech II beadando",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Ferencsik Márk (UJTWLL)",
+  "license": "ISC",
+  "homepage": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongodb": "^3.5.6",
+    "mongoose": "^5.11.15",
+    "node": "^17.7.1",
+    "server.js": "^1.0.0"
+  },
+  "devDependencies": {}
+}
